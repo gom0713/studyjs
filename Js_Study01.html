@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js_Study01_class</title>
+</head>
+
+<body>
+    <div class="person"></div>
+    <script>
+        var person = document.querySelector('.person');
+        class Person {
+            constructor(name, age, skill) {
+                this.name = name,
+                this.age = age,
+                this.skill = skill;
+            }
+            get age(){
+               return this._age;
+            }
+            set age(value){
+                if(value < 0){
+                    console.error('잘못된 나이입니다.');
+                }
+                this._age = value;
+            }
+            speak() {
+                person.innerHTML = `${this.name} is ${this.age} years old and has ${this.skill} skill.`
+            }
+        }
+        Person.prototype.type = 'human';
+        const sangwon = new Person('Sangwon', '29', 'javascript');
+        sangwon.speak();
+        console.log(sangwon.type)
+    </script>
+</body>
+
+</html>
